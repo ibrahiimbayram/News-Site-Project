@@ -1,0 +1,24 @@
+﻿@model Dto.DTOS.MessageDtos.MessageListDto
+
+
+    <ul id="dropdown4" class="dropdown-content dropdown-tasks w250 taskList">
+
+                <div class="text-center">
+                    <a asp-action="GetNewMessage" asp-controller="Home"><font color="black"><p>@ViewBag.bos</p></font></a>
+                </div>
+        @foreach (var i in ViewBag.li)
+        {
+            <font color="white">
+                <li>
+                    <div>
+                        @*<a><font color="black"><strong>@i.Name</strong></font></a>*@
+                        <span class="pull-right text-muted">
+                            <em>@i.ReadInfo</em>
+                        </span>
+                    </div>
+                    <a asp-action="Message" asp-controller="Home" asp-route-id="@i.Name"><font color="black"><strong>@i.Name</strong></font></a>
+                    @*<a asp-action="Message" asp-controller="Home" asp-route-id="@i.Name"><font color="black"><p>@i.Message</p></font></a>*@
+                </li>
+            </font>
+        }
+    </ul>

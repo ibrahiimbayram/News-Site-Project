@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewData["Title"] = "GetNewMessage";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+
+        <div class="message-wrap col-lg-6">
+
+            <div class="msg-wrap">
+                <div class="alert alert-info msg-date">
+                    <div class="text-center">
+                        <font size="5px"><strong>Gelen Kutusu</strong></font>
+                    </div>
+                </div>
+                <font color="black"><h4 class="text-center">@ViewBag.bos</h4></font>
+                @foreach (var i in ViewBag.li)
+                {
+
+                    <div class="media msg">
+                        <div class="media-body">
+                            <font size="4px"><small class="pull-right time"><i class="fa fa-clock-o"></i>@i.Date.ToString("dd/MM/yyyy")</small></font>
+                            <div class="media-heading">
+                                <font size="4px"><a asp-action="Message" asp-route-id="@i.Name">@i.Name</a></font>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+            <div class="text-center">
+                <ul class="pagination background-color=" white"">
+
+                    @for (int i = 1; i <= ViewBag.toplamsayfa; i++)
+                    {
+                        <li class="page-item @(ViewBag.AktifSayfa==i?"active":"")">
+                            <a class="page-link" asp-action="GetNewMessage" asp-route-page="@i">@i</a>
+                        </li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+        @if (ViewBag.liste != null)
+        {
+            <form action="Message" method="post">
+                <div class="col-lg-6">
+
+
+                    @foreach (var it in ViewBag.liste)
+                    {
+                        <div class="msg-wrap">
+                            <div class="text-center">
+                                <font size="4px">@it.Name</font>
+                            </div>
+                            <div class="media msg">
+                                <div class="media-body">
+                                    <font size="4px"><small>@it.Message</small></font>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <a class="btn btn-outline-info btn-sm pull-right" asp-action="Delete" asp-route-id="@it.Name">Sil</a>
+
+                    }
+
+                </div>
+            </form>
+        }
+    </div>
+</div>
+

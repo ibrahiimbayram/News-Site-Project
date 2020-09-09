@@ -1,0 +1,23 @@
+﻿@model Dto.DTOS.KategoriDtos.CategoryUpdateDto
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<form class="form-group mx-auto lead" method="post" asp-action="Update">
+    @foreach (var i in ViewBag.category)
+    {
+    <div class="col-md-6">
+        <label class="form-group-sm">Kategori Güncelle</label>
+        <br />
+        <input type="hidden" name="Id" value="@i.Id" />
+        <input type="text" name="Name" class="form-group-sm" value="@i.Name" />
+        <div>
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <input type="submit" class="btn btn-primary pull-right" value="Güncelle" />
+    </div>
+    }
+
+</form>
+

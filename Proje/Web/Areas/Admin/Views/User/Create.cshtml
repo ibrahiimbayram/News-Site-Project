@@ -1,0 +1,54 @@
+﻿@model Dto.DTOS.AppUserDtos.AppUserAddDto
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Yeni Kullanıcı</h2>
+<br />
+<br />
+
+<form method="post" class="mx-auto lead" asp-action="Create">
+    <div class="row">
+        <div class="col-md-6">
+            <label>Ad</label>
+            <span asp-validation-for="@Model.Name" class="text-danger"></span>
+            <br />
+            <input asp-for="@Model.Name" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <label>Soyad</label>
+            <span asp-validation-for="@Model.SurName" class="text-danger"></span>
+            <input asp-for="@Model.SurName" class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label>Kullanıcı Adı</label>
+            <span asp-validation-for="@Model.UserName" class="text-danger"></span>
+            <input asp-for="@Model.UserName" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <label>Parola</label>
+            <span asp-validation-for="@Model.Password" class="text-danger"></span>
+            <input asp-for="@Model.Password" class="form-control" type="password" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label>Email</label>
+            <span asp-validation-for="@Model.Email" class="text-danger"></span>
+            <input asp-for="@Model.Email" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <label>Parola Tekrar</label>
+            <span asp-validation-for="@Model.ConfirmPassword" class="text-danger"></span>
+            <input asp-for="@Model.ConfirmPassword" class="form-control" type="password" />
+        </div>
+    </div>
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="footer">
+        <button type="submit" class="btn btn-primary pull-right">Kaydet</button>
+    </div>
+</form>
+

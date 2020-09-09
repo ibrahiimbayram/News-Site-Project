@@ -1,0 +1,51 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "PendingNews";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Bekleyen Haberler</h2>
+<br />
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Başlık</th>
+            <th scope="col">Tarih</th>
+            <th scope="col">Durum</th>
+            <th scope="col">Detay</th>
+            <th scope="col">İşlem</th>
+            <th scope="col">Sil</th>
+            <th scope="col">Düzenle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var it in ViewBag.veriler)
+        {
+        <tr>
+            <th scope="row">@it.Id</th>
+            <td>@it.Title</td>
+            <td>@it.Date</td>
+            <td>@it.BroadCastingStatus</td>
+            <td><a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@it.Title">Detay</a></td>
+            <td><a class="btn btn-warning btn-sm" asp-action="PendingUpdateNews" asp-route-id="@it.Id">Yayınla</a></td>
+            <td><a class="btn btn-dark btn-sm" asp-action="DeleteNews" asp-route-id="@it.Id">Sil</a></td>
+            <td><a class="btn btn-success btn-sm" asp-action="UpdateNews" asp-route-id="@it.Id">Düzenle</a></td>
+        </tr>
+        }
+
+    </tbody>
+</table>
+<div class="text-center">
+    <ul class="pagination background-color=" white"">
+
+        @for (int i = 1; i <= ViewBag.toplamsayfa; i++)
+        {
+            <li class="page-item @(ViewBag.AktifSayfa==i?"active":"")">
+                <a class="page-link" asp-action="PendingNews" asp-route-page="@i">@i</a>
+            </li>
+        }
+
+    </ul>
+</div>
+

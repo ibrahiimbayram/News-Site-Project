@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Target Material Design Bootstrap Admin Template</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="~/asse/materialize/css/materialize.min.css" media="screen,projection" />
+    <!-- Bootstrap Styles-->
+    <link href="~/asse/css/bootstrap.css" rel="stylesheet" />
+    <!-- FontAwesome Styles-->
+    <link href="~/asse/css/font-awesome.css" rel="stylesheet" />
+    <!-- Morris Chart Styles-->
+    <link href="~/asse/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <!-- Custom Styles-->
+    <link href="~/asse/css/custom-styles.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand waves-effect waves-dark" asp-action="Index" asp-controller="Home">Haber.com@*<i class="large material-icons">track_changes</i>*@ <strong></strong></a>
+
+                <div id="sideNav" href=""><i class="material-icons dp48">toc</i></div>
+            </div>
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown4"><i class="fa fa-envelope fa-fw"></i> <i class="material-icons right">arrow_drop_down</i></a></li>
+                @await Component.InvokeAsync("AdminName")
+                @*<li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i class="fa fa-user fa-fw"></i> <b>John Doe</b> <i class="material-icons right">arrow_drop_down</i></a></li>*@
+            </ul>
+        </nav>
+        <!-- Dropdown Structure -->
+        <ul id="dropdown1" class="dropdown-content">
+            <li>
+                <a asp-action="Index" asp-controller="User"><i class="fa fa-gear fa-fw"></i>Ayarlar</a>
+            </li>
+            <li>
+                <a asp-action="SignOut" asp-controller="Login" asp-area="Admin"><i class="fa fa-sign-out fa-fw"></i>Çıkış Yap</a>
+            </li>
+        </ul>
+        @await Component.InvokeAsync("Message")
+        <!--/. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+                    <li>
+                        <a asp-action="Index" asp-controller="Home" class="waves-effect waves-dark"><i class="fa fa-home"></i>Anasayfa</a>
+                    </li>
+
+                    <li>
+                        <a asp-action="Index" asp-controller="Category" asp-route-id="" class="waves-effect waves-dark"><i class="fa fa-sitemap"></i>Kategori</a>
+                    <li>
+                    <li>
+                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-envelope fa-fw"></i>Mesaj<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a asp-action="GetNewMessage" asp-controller="Home" asp-route-id="">Yeni Mesajlar</a>
+                            </li>
+                            <li>
+                                <a asp-action="GetOldMessage" asp-controller="Home">Mesaj Arşivi</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-table"></i>Haber<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a asp-action="Index" asp-controller="News">Haber Ekle</a>
+                            </li>
+                            <li>
+                                <a asp-action="List" asp-controller="News">Güncel Haberler</a>
+                            </li>
+                            <li>
+                                <a asp-action="OldList" asp-controller="News">Haberler Arşivi</a>
+                            </li>
+                            <li>
+                                <a asp-action="PendingNews" asp-controller="News">Bekleyen Haberler</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-fw fa-user"></i>Kullanıcı<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a asp-action="Create" asp-controller="User">Kullanıcı Ekle</a>
+                            </li>
+                            <li>
+                                <a asp-action="Index" asp-controller="User">Kullanıcı Bilgileri</a>
+                            </li>
+                        </ul>
+                    </li>
+                    @*<li>
+                            <a asp-action="Index" asp-controller="User" class="waves-effect waves-dark"><i class="fa fa-fw fa-user"></i>Kullanıcı</a>
+                        </li>*@
+                    <li>
+                        <a asp-action="Index" asp-controller="Announcement" class="waves-effect waves-dark"><i class="fa fa-edit"></i>Duyuru<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a asp-action="Create" asp-controller="Announcement">Duyuru Ekle</a>
+                            </li>
+                            <li>
+                                <a asp-action="Index" asp-controller="Announcement">Güncel Duyurular</a>
+                            </li>
+                            <li>
+                                <a asp-action="OldList" asp-controller="Announcement">Duyuru Arşivi</a>
+                            </li>
+                            <li>
+                                <a asp-action="PendingAnnouncement" asp-controller="Announcement">Bekleyen Duyurular</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+
+        </nav>
+
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper">
+            <br />
+
+            <div id="page-inner" class="container">
+                @RenderBody()
+                <!-- /. PAGE WRAPPER  -->
+            </div>
+        </div>
+
+    </div>
+    <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+    <script src="~/asse/js/jquery-1.10.2.js"></script>
+
+    @*Bootstrap Js*@
+    <script src="~/asse/js/bootstrap.min.js"></script>
+
+    <script src="~/asse/materialize/js/materialize.min.js"></script>
+
+    <!-- Metis Menu Js -->
+    <script src="~/asse/js/jquery.metisMenu.js"></script>
+    <!-- Custom Js -->
+    <script src="~/asse/js/custom-scripts.js"></script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewData["Title"] = "GetOldMessage";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="container">
+        <div class="row">
+            <div class="row">
+
+                <div class="message-wrap col-lg-12">
+
+                    <div class="msg-wrap">
+                        <div class="alert alert-info msg-date text-center">
+                            <font size="5px"><strong>Gelen Kutusu</strong></font>
+                        </div>
+                        @foreach (var i in ViewBag.li)
+                        {
+                            <table>
+                                <thead>
+                                    <div class="media msg">
+                                        <div class="media-body">
+                                            <font size="4px"><small class="pull-right time"><i class="fa fa-clock-o"></i>@i.Date.ToString("dd/MM/yyyy")</small></font>
+                                            <div class="media-heading">
+                                                <a asp-action="Message" asp-route-id="@i.Name">@i.Name</a>
+                                            </div>
+                                            <font size="4px"><small>@i.Message</small></font>
+                                        </div>
+                                    </div>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <a class="btn btn-light btn-sm pull-right" asp-action="DeleteOldMessage" asp-route-id="@i.Name">Sil</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                      
+
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <ul class="pagination background-color=" white"">
+
+                @for (int i = 1; i <= ViewBag.toplamsayfa; i++)
+                {
+                    <li class="page-item @(ViewBag.AktifSayfa==i?"active":"")">
+                        <a class="page-link" asp-action="GetOldMessage" asp-route-page="@i">@i</a>
+                    </li>
+                }
+
+            </ul>
+        </div>

@@ -1,0 +1,19 @@
+﻿@model Dto.DTOS.KategoriDtos.CategoryAddDto
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<form class="form-group mx-auto lead" method="post">
+    <div class="col-md-6">
+        <label asp-for="Name" class="form-group-sm">Kategori Ekle</label>
+        <br />
+        <input asp-for="Name" type="text" name="Name" class="form-group-sm" />
+        <div>
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <input type="submit" class="btn btn-primary pull-right" value="Kaydet" />
+    </div>
+
+</form>
+

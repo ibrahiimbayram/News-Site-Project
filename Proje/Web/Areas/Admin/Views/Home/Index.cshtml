@@ -1,0 +1,191 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center">Haber Verileri</h1>
+<br />
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <div class="card text-white bg-info mb-3" style="width:22rem; max-width: 22rem;min-height: 13rem;">
+            <div class="card-body">
+                <br />
+                <h5 class="card-title text-center">Toplam Haber</h5>
+                <h1 class="text-center">@ViewBag.GetTotalNewsNumber</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-danger mb-3" style="width:22rem; max-width: 22rem; min-height: 13rem;">
+            <div class="card-body">
+                <br />
+                <h5 class="card-title text-center">Güncel Haber</h5>
+                <h1 class="text-center">@ViewBag.GetActiveNewsNumber</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-warning mb-3" style="width:22rem; max-width: 22rem; min-height: 13rem;">
+            <div class="card-body">
+                <br />
+                <h5 class="card-title text-center">Bekleyen Haber</h5>
+                <h1 class="text-center">@ViewBag.GetPendingNewsNumber</h1>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card text-white bg-danger mb-3" style="width:22rem; max-width: 22rem; min-height: 13rem;">
+            <div class="card-body">
+                <br />
+                <h5 class="card-title text-center">Spor Haberleri</h5>
+                <h1 class="text-center">@ViewBag.GetSportTotalNewsNumber</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-warning mb-3" style="width:22rem; max-width: 22rem; min-height: 13rem;">
+            <div class="card-body">
+                <br />
+                <h5 class="card-title text-center">Siyaset Haberleri</h5>
+                <h1 class="text-center">@ViewBag.GetPoliticsTotalNewsNumber</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-info mb-3" style="width:22rem; max-width: 22rem; min-height: 13rem;">
+            <div class="card-body">
+                <br />
+                <h5 class="card-title text-center">Eğitim Haberleri</h5>
+                <h1 class="text-center">@ViewBag.GetEducationTotalNewsNumber</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card text-white bg-warning mb-3" style="width:22rem; max-width: 22rem; min-height: 13rem;">
+            <div class="card-body">
+                <br />
+                <h5 class="card-title text-center">Ekonomi Haberleri</h5>
+                <h1 class="text-center">@ViewBag.GetEconomyTotalNewsNumber</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-info mb-3" style="width:22rem; max-width: 22rem; min-height: 13rem;">
+            <div class="card-body">
+                <br />
+                <h5 class="card-title text-center">Sağlık Haberleri</h5>
+                <h1 class="text-center">@ViewBag.GetHealthTotalNewsNumber</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-danger mb-3" style="width:22rem; max-width: 22rem; min-height: 13rem;">
+            <div class="card-body">
+                <br />
+                <h5 class="card-title text-center">Magazin Haberleri</h5>
+                <h1 class="text-center">@ViewBag.GetMagazinTotalNewsNumber</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h1 class="text-center">Duyuru Verileri</h1>
+<br /><br />
+<div class="row">
+    <div class="col-md-4">
+        <div class="card text-white bg-success mb-3" style="width:22rem; max-width: 22rem; min-height: 13rem;">
+            <div class="card-body">
+                <br />
+                <h5 class="card-title text-center">Toplam Duyuru</h5>
+                <h1 class="text-center">@ViewBag.GetTotalAnnouncementNumber</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-danger mb-3" style="width:22rem; max-width: 22rem; min-height: 13rem;">
+            <div class="card-body">
+                <br />
+                <h5 class="card-title text-center">Aktif Duyuru</h5>
+                <h1 class="text-center">@ViewBag.GetActiveAnnouncementNumber</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-info mb-3" style="width:22rem; max-width: 22rem; min-height: 13rem;">
+            <div class="card-body">
+                <br />
+                <h5 class="card-title text-center">Bekleyen Duyuru</h5>
+                <h1 class="text-center">@ViewBag.GetPendingAnnouncementNumber</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card text-white bg-danger mb-3" style="width:22rem; max-width: 22rem; min-height: 13rem;">
+            <div class="card-body">
+                <br />
+                <h5 class="card-title text-center">Spor Duyuruları</h5>
+                <h1 class="text-center">@ViewBag.GetSportTotalDuyuruNumber</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-info mb-3" style="width:22rem; max-width: 22rem; min-height: 13rem;">
+            <div class="card-body">
+                <br />
+                <h5 class="card-title text-center">Siyaset Duyuruları</h5>
+                <h1 class="text-center">@ViewBag.GetPoliticsTotalDuyuruNumber</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-success mb-3" style="width:22rem; max-width: 22rem; min-height: 13rem;">
+            <div class="card-body">
+                <br />
+                <h5 class="card-title text-center">Eğitim Duyuruları</h5>
+                <h1 class="text-center">@ViewBag.GetEducationTotalDuyuruNumber</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card text-white bg-info mb-3" style="width:22rem; max-width: 22rem; min-height: 13rem;">
+            <div class="card-body">
+                <br />
+                <h5 class="card-title text-center">Ekonomi Duyuruları</h5>
+                <h1 class="text-center">@ViewBag.GetEconomyTotalDuyuruNumber</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-success mb-3" style="width:22rem; max-width: 22rem; min-height: 13rem;">
+            <div class="card-body">
+                <br />
+                <h5 class="card-title text-center">Sağlık Duyuruları</h5>
+                <h1 class="text-center">@ViewBag.GetHealthTotalDuyuruNumber</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-danger mb-3" style="width:22rem; max-width: 22rem; min-height: 13rem;">
+            <div class="card-body">
+                <br />
+                <h5 class="card-title text-center">Magazin Duyuruları</h5>
+                <h1 class="text-center">@ViewBag.GetMagazinTotalDuyuruNumber</h1>
+            </div>
+        </div>
+    </div>
+</div>
+

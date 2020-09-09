@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<a asp-action="Create" asp-controller="Category" class="btn btn-primary">Yeni Kategori</a>
+<br />
+<br />
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Kategori Adı</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var it in ViewBag.category)
+            {
+                <tr>
+                    <th scope="row">@it.Id</th>
+                    <td>@it.Name</td>
+                    <td><a class="btn btn-dark btn-sm" asp-action="Delete" asp-route-id="@it.Id">Sil</a></td>
+                    <td><a class="btn btn-success btn-sm" asp-action="Update" asp-route-id="@it.Id">Düzenle</a></td>
+                </tr>
+            }
+
+        </tbody>
+    </table>

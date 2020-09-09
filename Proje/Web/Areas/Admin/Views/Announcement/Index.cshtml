@@ -1,0 +1,77 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Güncel Duyurular</h2>
+<br />
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Başlık</th>
+            <th scope="col">Tarih</th>
+            <th scope="col">Durum</th>
+            <th scope="col">Detay</th>
+            <th scope="col">İşlem</th>
+            <th scope="col">Sil</th>
+            <th scope="col">Düzenle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var it in ViewBag.veriler)
+        {
+            <tr>
+                <th scope="row">@it.Id</th>
+                <td>@it.Title</td>
+                <td>@it.Date</td>
+                <td>@it.BroadCastingStatus</td>
+                <td><a class="btn btn-warning btn-sm" asp-action="Details" asp-route-id="@it.Title">Detay</a></td>
+                <td><a class="btn btn-info btn-sm" asp-action="PassiveUpdateAnnouncement" asp-route-id="@it.Id">Kaldır</a></td>
+                <td><a class="btn btn-danger btn-sm" asp-action="AktifDeleteAnnouncement" asp-route-id="@it.Id">Sil</a></td>
+                <td><a class="btn btn-success btn-sm" asp-action="UpdateAnnouncement" asp-route-id="@it.Id">Düzenle</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+
+<br />
+<div class="container">
+    @foreach (var it in ViewBag.veriler)
+    {
+        <div class="col-md-4 col-md-4">
+            <div class="card">
+                <img src="~/img/@it.ImagePath" width="100%" height="220" />
+                <div class="card-body">
+                    <a asp-action="Details" asp-route-id="@it.Title"><h3 class="text-center"><font color="Grey">@it.Title</font></h3></a>
+                    <br />
+                    <p class="card-text"><font size="3px" color="black">@it.ShortDescription</font></p>
+                    <div>
+                        <a asp-action="Details" asp-route-id="@it.Title">DEVAMINI OKU ></a>
+                        <br />
+                        <time class="timeago text-muted">@it.Date.ToString("dd/MM/yyyy")</time>
+
+                    </div>
+                    <br />
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+<div class="text-center">
+    <ul class="pagination background-color=" white"">
+
+        @for (int i = 1; i <= ViewBag.toplamsayfa; i++)
+        {
+            <li class="page-item @(ViewBag.AktifSayfa==i?"active":"")">
+                <a class="page-link" asp-action="Index" asp-route-page="@i">@i</a>
+            </li>
+        }
+
+    </ul>
+</div>
+

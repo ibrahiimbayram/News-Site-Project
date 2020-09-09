@@ -1,0 +1,49 @@
+﻿@model Dto.DTOS.AppUserDtos.AppUserListDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Kulanıcı Listesi</h2>
+<br />
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Ad</th>
+            <th scope="col">Soyad</th>
+            <th scope="col">Kullanıcı Adı</th>
+            <th scope="col">Sil</th>
+            <th scope="col">Düzenle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var it in ViewBag.users)
+        {
+            <tr>
+                <th scope="row">@it.Id</th>
+                <td>@it.Name</td>
+                <td>@it.SurName</td>
+                <td>@it.UserName</td>
+                <td><a class="btn btn-dark btn-sm" asp-action="Delete" asp-route-id="@it.Id">Sil</a></td>
+                <td><a class="btn btn-success btn-sm" asp-action="Update" asp-route-id="@it.Id">Düzenle</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+<div class="text-center">
+    <ul class="pagination background-color=" white"">
+
+        @for (int i = 1; i <= ViewBag.toplamsayfa; i++)
+        {
+            <li class="page-item @(ViewBag.AktifSayfa==i?"active":"")">
+                <a class="page-link" asp-action="List" asp-route-page="@i">@i</a>
+            </li>
+        }
+
+    </ul>
+</div>
+
+
+
