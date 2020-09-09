@@ -1,7 +1,7 @@
 # Haber-Sitesi
 Proje 5 katmanlı olarak tasarlandı , Repository pattern ve  .Net Core Identity kütüphanesi kullanıldı.
 
-DbContext bilgisine bu yoldan ulaşım sağlayabilirsiniz DataAcces-Concrete-Context-DataContext
+appsettings.json connection string ile veritabanı adını değiştirerek projeyi çalıştırabilirsiniz.
 Projede bulunan veritabanı kullanılmayacak ise Package Manager Console aracılığı ile sırasıyla şu işlemler yapılmalıdır
 
 1- add-migration migration adı
