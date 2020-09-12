@@ -1,5 +1,5 @@
 # Haber-Sitesi
-Proje 5 katmanlı olarak tasarlandı , Repository pattern ve  .Net Core Identity kütüphanesi kullanıldı.
+Proje 4 katmanlı olarak tasarlandı , Repository pattern ve  .Net Core Identity kütüphanesi kullanıldı.
 
 appsettings.json connection string ile veritabanı adını değiştirerek projeyi çalıştırabilirsiniz.
 Projede bulunan veritabanı kullanılmayacak ise Package Manager Console aracılığı ile sırasıyla şu işlemler yapılmalıdır
